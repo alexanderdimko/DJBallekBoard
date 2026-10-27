@@ -1,0 +1,931 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DJBallekBoard</title>
+    <meta
+      name="description"
+      content="DJBallekBoard - a playable DJ board with sound kit and music import."
+    />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="page-shell">
+      <header class="topbar">
+        <div class="brand">
+          <span class="brand-mark"></span>
+          <span>DJBallekBoard</span>
+        </div>
+
+        <div class="status-pill">
+          <span class="live-dot"></span>
+          <span>Live session</span>
+        </div>
+      </header>
+
+      <main class="workspace">
+        <section class="board-panel">
+          <div class="panel-head">
+            <h2>Performance board</h2>
+            <div class="control-chips">
+              <button id="powerToggle" class="chip active" type="button">On</button>
+              <button id="loopToggle" class="chip" type="button">Auto loop</button>
+            </div>
+          </div>
+
+          <div class="pad-grid" id="padGrid">
+            <button class="pad" data-sound="kick" data-key="A">
+              <span class="pad-label">Kick</span>
+              <span class="pad-key">A</span>
+            </button>
+            <button class="pad" data-sound="snare" data-key="S">
+              <span class="pad-label">Snare</span>
+              <span class="pad-key">S</span>
+            </button>
+            <button class="pad" data-sound="hat" data-key="D">
+              <span class="pad-label">Hi-Hat</span>
+              <span class="pad-key">D</span>
+            </button>
+            <button class="pad" data-sound="clap" data-key="F">
+              <span class="pad-label">Clap</span>
+              <span class="pad-key">F</span>
+            </button>
+
+            <button class="pad" data-sound="tom" data-key="G">
+              <span class="pad-label">Tom</span>
+              <span class="pad-key">G</span>
+            </button>
+            <button class="pad" data-sound="ride" data-key="H">
+              <span class="pad-label">Ride</span>
+              <span class="pad-key">H</span>
+            </button>
+            <button class="pad" data-sound="perc" data-key="J">
+              <span class="pad-label">Perc</span>
+              <span class="pad-key">J</span>
+            </button>
+            <button class="pad" data-sound="bass" data-key="K">
+              <span class="pad-label">Bass</span>
+              <span class="pad-key">K</span>
+            </button>
+
+            <button class="pad" data-sound="fx1" data-key="L">
+              <span class="pad-label">FX 1</span>
+              <span class="pad-key">L</span>
+            </button>
+            <button class="pad" data-sound="fx2" data-key="Q">
+              <span class="pad-label">FX 2</span>
+              <span class="pad-key">Q</span>
+            </button>
+            <button class="pad" data-sound="chord" data-key="W">
+              <span class="pad-label">Chord</span>
+              <span class="pad-key">W</span>
+            </button>
+            <button class="pad" data-sound="lead" data-key="E">
+              <span class="pad-label">Lead</span>
+              <span class="pad-key">E</span>
+            </button>
+
+            <button class="pad" data-sound="vox" data-key="R">
+              <span class="pad-label">Vox</span>
+              <span class="pad-key">R</span>
+            </button>
+            <button class="pad" data-sound="crash" data-key="T">
+              <span class="pad-label">Crash</span>
+              <span class="pad-key">T</span>
+            </button>
+            <button class="pad" data-sound="sub" data-key="Y">
+              <span class="pad-label">Sub</span>
+              <span class="pad-key">Y</span>
+            </button>
+            <button class="pad" data-sound="drop" data-key="U">
+              <span class="pad-label">Drop</span>
+              <span class="pad-key">U</span>
+            </button>
+          </div>
+
+          <div class="deck-row">
+            <div class="deck-card">
+              <div class="deck-title">Deck A</div>
+              <div class="screen"></div>
+              <div class="deck-actions">
+                <button class="btn" id="playTrackBtn" type="button">Play track</button>
+                <button class="btn secondary" id="pauseTrackBtn" type="button">Pause</button>
+                <button class="btn danger" id="stopTrackBtn" type="button">Stop</button>
+              </div>
+            </div>
+
+            <div class="deck-card">
+              <div class="deck-title">Deck B</div>
+              <div class="screen"></div>
+              <div class="deck-actions">
+                <button class="btn" id="playKitBtn" type="button">Play kit</button>
+                <button class="btn secondary" id="muteKitBtn" type="button">Mute</button>
+                <button class="btn" id="tapTempoBtn" type="button">Tap</button>
+              </div>
+            </div>
+          </div>
+        </section>
+
+        <aside class="sidebar">
+          <div class="panel-card">
+            <h3>Mix desk</h3>
+
+            <div class="sliders">
+              <label class="slider-row">
+                <span>Master</span>
+                <input id="masterVolume" type="range" min="0" max="100" value="72" />
+                <strong id="masterValue">72</strong>
+              </label>
+
+              <label class="slider-row">
+                <span>Track</span>
+                <input id="trackVolume" type="range" min="0" max="100" value="62" />
+                <strong id="trackValue">62</strong>
+              </label>
+
+              <label class="slider-row">
+                <span>BPM</span>
+                <input id="bpmSlider" type="range" min="70" max="180" value="118" />
+                <strong id="bpmValue">118</strong>
+              </label>
+            </div>
+
+            <div class="meter">
+              <div class="meter-bar"></div>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <h3>Music import</h3>
+
+            <div class="track-box">
+              <span class="track-name" id="trackName">No track loaded</span>
+              <span class="status-text" id="trackStatus">Idle</span>
+            </div>
+
+            <div class="file-upload">
+              <input id="audioFileInput" type="file" accept="audio/*" />
+              <label for="audioFileInput">Import music</label>
+            </div>
+          </div>
+
+          <div class="panel-card">
+            <h3>Live visual</h3>
+            <div class="visualizer" id="visualizer">
+              <span class="bar" style="height: 22%"></span>
+              <span class="bar" style="height: 58%"></span>
+              <span class="bar" style="height: 42%"></span>
+              <span class="bar" style="height: 76%"></span>
+              <span class="bar" style="height: 33%"></span>
+              <span class="bar" style="height: 88%"></span>
+              <span class="bar" style="height: 56%"></span>
+              <span class="bar" style="height: 92%"></span>
+              <span class="bar" style="height: 46%"></span>
+              <span class="bar" style="height: 70%"></span>
+              <span class="bar" style="height: 67%"></span>
+              <span class="bar" style="height: 81%"></span>
+              <span class="bar" style="height: 39%"></span>
+              <span class="bar" style="height: 98%"></span>
+              <span class="bar" style="height: 52%"></span>
+              <span class="bar" style="height: 75%"></span>
+              <span class="bar" style="height: 61%"></span>
+              <span class="bar" style="height: 84%"></span>
+              <span class="bar" style="height: 48%"></span>
+              <span class="bar" style="height: 90%"></span>
+              <span class="bar" style="height: 57%"></span>
+              <span class="bar" style="height: 73%"></span>
+              <span class="bar" style="height: 31%"></span>
+              <span class="bar" style="height: 95%"></span>
+              <span class="bar" style="height: 44%"></span>
+              <span class="bar" style="height: 77%"></span>
+              <span class="bar" style="height: 54%"></span>
+              <span class="bar" style="height: 87%"></span>
+            </div>
+          </div>
+
+          <div class="footer-meta">
+            <span>Keyboard: A-U</span>
+            <span class="tag">Deck ready</span>
+          </div>
+        </aside>
+      </main>
+    </div>
+
+    <script src="app.js"></script>
+  </body>
+</html>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
