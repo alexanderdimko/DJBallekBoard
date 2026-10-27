@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DJBallekBoard</title>
+    <title>Mr. Ballek's Famous Air-Fryer Recipes</title>
     <meta
       name="description"
-      content="DJBallekBoard - a playable DJ board with sound kit and music import."
+      content="Mr. Ballek's Famous Air-Fryer Recipes featuring nuggets, chips, classic air fryer favourites, and air-fried trangoli pasta."
     />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -20,912 +20,181 @@
     <div class="page-shell">
       <header class="topbar">
         <div class="brand">
-          <span class="brand-mark"></span>
-          <span>DJBallekBoard</span>
+          <span class="brand-mark">🔥</span>
+          <span>Mr. Ballek's Famous</span>
         </div>
-
-        <div class="status-pill">
-          <span class="live-dot"></span>
-          <span>Live session</span>
-        </div>
+        <nav class="topnav" aria-label="Main navigation">
+          <a href="#featured">Recipes</a>
+          <a href="#tips">Tips</a>
+          <a href="#favourites">Favourites</a>
+        </nav>
       </header>
 
-      <main class="workspace">
-        <section class="board-panel">
-          <div class="panel-head">
-            <h2>Performance board</h2>
-            <div class="control-chips">
-              <button id="powerToggle" class="chip active" type="button">On</button>
-              <button id="loopToggle" class="chip" type="button">Auto loop</button>
+      <main>
+        <section class="hero">
+          <div class="hero-copy">
+            <p class="eyebrow">Crispy. Fast. Family-friendly.</p>
+            <h1>Mr. Ballek's Famous Air-Fryer Recipes</h1>
+            <p class="lead">
+              From golden chips to crispy nuggets and big air-fryer classics, this is the go-to collection for quick, crunchy meals everyone asks for again.
+            </p>
+            <div class="hero-actions">
+              <a class="button primary" href="#featured">See recipes</a>
+              <a class="button secondary" href="#tips">Air-fryer tips</a>
             </div>
           </div>
 
-          <div class="pad-grid" id="padGrid">
-            <button class="pad" data-sound="kick" data-key="A">
-              <span class="pad-label">Kick</span>
-              <span class="pad-key">A</span>
-            </button>
-            <button class="pad" data-sound="snare" data-key="S">
-              <span class="pad-label">Snare</span>
-              <span class="pad-key">S</span>
-            </button>
-            <button class="pad" data-sound="hat" data-key="D">
-              <span class="pad-label">Hi-Hat</span>
-              <span class="pad-key">D</span>
-            </button>
-            <button class="pad" data-sound="clap" data-key="F">
-              <span class="pad-label">Clap</span>
-              <span class="pad-key">F</span>
-            </button>
-
-            <button class="pad" data-sound="tom" data-key="G">
-              <span class="pad-label">Tom</span>
-              <span class="pad-key">G</span>
-            </button>
-            <button class="pad" data-sound="ride" data-key="H">
-              <span class="pad-label">Ride</span>
-              <span class="pad-key">H</span>
-            </button>
-            <button class="pad" data-sound="perc" data-key="J">
-              <span class="pad-label">Perc</span>
-              <span class="pad-key">J</span>
-            </button>
-            <button class="pad" data-sound="bass" data-key="K">
-              <span class="pad-label">Bass</span>
-              <span class="pad-key">K</span>
-            </button>
-
-            <button class="pad" data-sound="fx1" data-key="L">
-              <span class="pad-label">FX 1</span>
-              <span class="pad-key">L</span>
-            </button>
-            <button class="pad" data-sound="fx2" data-key="Q">
-              <span class="pad-label">FX 2</span>
-              <span class="pad-key">Q</span>
-            </button>
-            <button class="pad" data-sound="chord" data-key="W">
-              <span class="pad-label">Chord</span>
-              <span class="pad-key">W</span>
-            </button>
-            <button class="pad" data-sound="lead" data-key="E">
-              <span class="pad-label">Lead</span>
-              <span class="pad-key">E</span>
-            </button>
-
-            <button class="pad" data-sound="vox" data-key="R">
-              <span class="pad-label">Vox</span>
-              <span class="pad-key">R</span>
-            </button>
-            <button class="pad" data-sound="crash" data-key="T">
-              <span class="pad-label">Crash</span>
-              <span class="pad-key">T</span>
-            </button>
-            <button class="pad" data-sound="sub" data-key="Y">
-              <span class="pad-label">Sub</span>
-              <span class="pad-key">Y</span>
-            </button>
-            <button class="pad" data-sound="drop" data-key="U">
-              <span class="pad-label">Drop</span>
-              <span class="pad-key">U</span>
-            </button>
-          </div>
-
-          <div class="deck-row">
-            <div class="deck-card">
-              <div class="deck-title">Deck A</div>
-              <div class="screen"></div>
-              <div class="deck-actions">
-                <button class="btn" id="playTrackBtn" type="button">Play track</button>
-                <button class="btn secondary" id="pauseTrackBtn" type="button">Pause</button>
-                <button class="btn danger" id="stopTrackBtn" type="button">Stop</button>
-              </div>
+          <div class="hero-card" aria-label="Air fryer platter preview">
+            <div class="plate">
+              <div class="dish dish-nuggets"></div>
+              <div class="dish dish-chips"></div>
+              <div class="dish dish-pasta"></div>
             </div>
-
-            <div class="deck-card">
-              <div class="deck-title">Deck B</div>
-              <div class="screen"></div>
-              <div class="deck-actions">
-                <button class="btn" id="playKitBtn" type="button">Play kit</button>
-                <button class="btn secondary" id="muteKitBtn" type="button">Mute</button>
-                <button class="btn" id="tapTempoBtn" type="button">Tap</button>
-              </div>
+            <div class="badge-row">
+              <span>Golden chips</span>
+              <span>Crispy nuggets</span>
+              <span>Air-fried pasta</span>
             </div>
           </div>
         </section>
 
-        <aside class="sidebar">
-          <div class="panel-card">
-            <h3>Mix desk</h3>
-
-            <div class="sliders">
-              <label class="slider-row">
-                <span>Master</span>
-                <input id="masterVolume" type="range" min="0" max="100" value="72" />
-                <strong id="masterValue">72</strong>
-              </label>
-
-              <label class="slider-row">
-                <span>Track</span>
-                <input id="trackVolume" type="range" min="0" max="100" value="62" />
-                <strong id="trackValue">62</strong>
-              </label>
-
-              <label class="slider-row">
-                <span>BPM</span>
-                <input id="bpmSlider" type="range" min="70" max="180" value="118" />
-                <strong id="bpmValue">118</strong>
-              </label>
-            </div>
-
-            <div class="meter">
-              <div class="meter-bar"></div>
-            </div>
+        <section id="featured" class="recipes">
+          <div class="section-heading">
+            <p class="eyebrow">Featured favourites</p>
+            <h2>Most popular air-fryer dishes</h2>
           </div>
 
-          <div class="panel-card">
-            <h3>Music import</h3>
+          <div class="recipe-grid">
+            <article class="recipe-card accent-orange">
+              <span class="tag">Classic</span>
+              <h3>Crispy Chicken Nuggets</h3>
+              <ul>
+                <li>Chicken breast or nuggets</li>
+                <li>Breadcrumbs or panko</li>
+                <li>Salt, pepper, paprika</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Coat the nuggets lightly, spray with oil, and air fry at 200°C for 10–12 minutes, turning once.</p>
+              </div>
+            </article>
 
-            <div class="track-box">
-              <span class="track-name" id="trackName">No track loaded</span>
-              <span class="status-text" id="trackStatus">Idle</span>
-            </div>
+            <article class="recipe-card accent-gold">
+              <span class="tag">Crowd pleaser</span>
+              <h3>Golden Chips</h3>
+              <ul>
+                <li>Potatoes cut into chips</li>
+                <li>Olive oil or spray oil</li>
+                <li>Sea salt and black pepper</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Soak the chips briefly, dry well, toss in oil, and cook at 200°C for 15–20 minutes, shaking halfway.</p>
+              </div>
+            </article>
 
-            <div class="file-upload">
-              <input id="audioFileInput" type="file" accept="audio/*" />
-              <label for="audioFileInput">Import music</label>
-            </div>
+            <article class="recipe-card accent-red">
+              <span class="tag">Quick bite</span>
+              <h3>Air-Fried Chicken Wings</h3>
+              <ul>
+                <li>Chicken wings</li>
+                <li>Garlic powder</li>
+                <li>Hot sauce or BBQ glaze</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Season well, air fry at 190°C for 18–22 minutes, then toss in sauce for extra flavour.</p>
+              </div>
+            </article>
+
+            <article class="recipe-card accent-green">
+              <span class="tag">Healthy option</span>
+              <h3>Air-Fried Salmon Fillets</h3>
+              <ul>
+                <li>Salmon fillets</li>
+                <li>Lemon juice</li>
+                <li>Herbs and garlic</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Brush with oil and seasoning, cook at 180°C for 10–12 minutes until flaky and golden.</p>
+              </div>
+            </article>
+
+            <article class="recipe-card accent-purple">
+              <span class="tag">Cheesy</span>
+              <h3>Air-Fried Cheese Toasties</h3>
+              <ul>
+                <li>Bread</li>
+                <li>Cheddar or mozzarella</li>
+                <li>Butter or garlic spread</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Build the sandwich, air fry at 180°C for 6–8 minutes until crisp and melty.</p>
+              </div>
+            </article>
+
+            <article class="recipe-card accent-blue">
+              <span class="tag">Special</span>
+              <h3>Air-Fried Trangoli Pasta</h3>
+              <ul>
+                <li>Cooked pasta shapes</li>
+                <li>Tomato sauce or pesto</li>
+                <li>Cheese and herbs</li>
+              </ul>
+              <div class="steps">
+                <strong>Method</strong>
+                <p>Mix pasta with sauce, place in a shallow dish, top with cheese, and air fry at 180°C until crisp at the edges and piping hot.</p>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section id="tips" class="tips">
+          <div class="section-heading">
+            <p class="eyebrow">Air-fryer basics</p>
+            <h2>Little tricks for perfect results</h2>
           </div>
 
-          <div class="panel-card">
-            <h3>Live visual</h3>
-            <div class="visualizer" id="visualizer">
-              <span class="bar" style="height: 22%"></span>
-              <span class="bar" style="height: 58%"></span>
-              <span class="bar" style="height: 42%"></span>
-              <span class="bar" style="height: 76%"></span>
-              <span class="bar" style="height: 33%"></span>
-              <span class="bar" style="height: 88%"></span>
-              <span class="bar" style="height: 56%"></span>
-              <span class="bar" style="height: 92%"></span>
-              <span class="bar" style="height: 46%"></span>
-              <span class="bar" style="height: 70%"></span>
-              <span class="bar" style="height: 67%"></span>
-              <span class="bar" style="height: 81%"></span>
-              <span class="bar" style="height: 39%"></span>
-              <span class="bar" style="height: 98%"></span>
-              <span class="bar" style="height: 52%"></span>
-              <span class="bar" style="height: 75%"></span>
-              <span class="bar" style="height: 61%"></span>
-              <span class="bar" style="height: 84%"></span>
-              <span class="bar" style="height: 48%"></span>
-              <span class="bar" style="height: 90%"></span>
-              <span class="bar" style="height: 57%"></span>
-              <span class="bar" style="height: 73%"></span>
-              <span class="bar" style="height: 31%"></span>
-              <span class="bar" style="height: 95%"></span>
-              <span class="bar" style="height: 44%"></span>
-              <span class="bar" style="height: 77%"></span>
-              <span class="bar" style="height: 54%"></span>
-              <span class="bar" style="height: 87%"></span>
+          <div class="tips-grid">
+            <div class="tip-box">
+              <h3>1. Don’t overcrowd</h3>
+              <p>Leave space around each piece so the hot air can circulate and crisp everything evenly.</p>
+            </div>
+            <div class="tip-box">
+              <h3>2. Spray lightly</h3>
+              <p>A quick spray of oil helps with colour and crunch without making food greasy.</p>
+            </div>
+            <div class="tip-box">
+              <h3>3. Shake or turn</h3>
+              <p>Flip chips, nuggets, or wings halfway through for that perfect golden finish.</p>
+            </div>
+            <div class="tip-box">
+              <h3>4. Preheat when needed</h3>
+              <p>For extra crispness, preheat the air fryer for a few minutes before cooking.</p>
             </div>
           </div>
+        </section>
 
-          <div class="footer-meta">
-            <span>Keyboard: A-U</span>
-            <span class="tag">Deck ready</span>
+        <section id="favourites" class="favourites">
+          <div class="favourites-banner">
+            <p class="eyebrow">The all-rounders</p>
+            <h2>What most people cook in the air fryer</h2>
           </div>
-        </aside>
+
+          <ul class="favourite-list">
+            <li>Frozen nuggets</li>
+            <li>Potato chips and wedges</li>
+            <li>Chicken breast strips</li>
+            <li>Veggie burgers</li>
+            <li>Halloumi and vegetables</li>
+            <li>Roasted potatoes and sausages</li>
+            <li>Stuffed peppers</li>
+            <li>Cheesy pasta bakes</li>
+          </ul>
+        </section>
       </main>
     </div>
-
-    <script src="app.js"></script>
   </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
