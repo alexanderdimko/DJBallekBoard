@@ -11,7 +11,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Oswald:wght@400;500;600;700&display=swap"
       rel="stylesheet"
     />
     <link rel="stylesheet" href="styles.css" />
@@ -19,10 +19,31 @@
   <body>
     <div class="page-shell">
       <header class="topbar">
-        <div class="brand">
-          <span class="brand-mark">🔥</span>
-          <span>Mr. Ballek's Famous</span>
+        <div class="brand" aria-label="Mr. Ballek logo">
+          <span class="brand-mark" aria-hidden="true">
+            <svg viewBox="0 0 64 64" role="img" aria-label="DJ performer logo">
+              <circle cx="32" cy="18" r="10" fill="#f2c28b"/>
+              <path d="M20 25c2-8 8-12 12-12s10 4 12 12v12H20V25Z" fill="#1d232b"/>
+              <path d="M15 27c5 0 9 4 9 9v7H5v-7c0-5 4-9 10-9Z" fill="#1d232b"/>
+              <path d="M49 27c5 0 9 4 9 9v7h-19v-7c0-5 4-9 10-9Z" fill="#1d232b"/>
+              <path d="M23 31c3 5 8 8 9 8s6-3 9-8v7h-18v-7Z" fill="#f9d9a8" opacity="0.8"/>
+              <path d="M20 31c-3 2-5 5-5 9 0 2 1 3 2 3h2l5-12h-4Z" fill="#181d22"/>
+              <path d="M44 31c3 2 5 5 5 9 0 2-1 3-2 3h-2l-5-12h4Z" fill="#181d22"/>
+              <rect x="16" y="15" width="32" height="7" rx="3.5" fill="#f2c28b" opacity="0.9"/>
+              <rect x="17" y="9" width="30" height="8" rx="4" fill="#d36c2f"/>
+              <circle cx="24" cy="23" r="2.5" fill="#1d232b"/>
+              <circle cx="40" cy="23" r="2.5" fill="#1d232b"/>
+              <path d="M28 35h8v10h-8z" fill="#d36c2f"/>
+              <path d="M24 47h16v4H24z" fill="#d36c2f"/>
+              <path d="M23 41h18v3H23z" fill="#1d232b" opacity="0.75"/>
+            </svg>
+          </span>
+          <span class="brand-text">
+            <span class="brand-name">Mr. Ballek's</span>
+            <small>Famous Air-Fryer Recipes</small>
+          </span>
         </div>
+
         <nav class="topnav" aria-label="Main navigation">
           <a href="#featured">Recipes</a>
           <a href="#tips">Tips</a>
@@ -33,10 +54,10 @@
       <main>
         <section class="hero">
           <div class="hero-copy">
-            <p class="eyebrow">Crispy. Fast. Family-friendly.</p>
+            <p class="eyebrow">Crispy. Fast. Reliable.</p>
             <h1>Mr. Ballek's Famous Air-Fryer Recipes</h1>
             <p class="lead">
-              From golden chips to crispy nuggets and big air-fryer classics, this is the go-to collection for quick, crunchy meals everyone asks for again.
+              Golden nuggets, crispy chips, classic favourites, and cheesy air-fried pasta that hits every time.
             </p>
             <div class="hero-actions">
               <a class="button primary" href="#featured">See recipes</a>
@@ -75,7 +96,7 @@
               </ul>
               <div class="steps">
                 <strong>Method</strong>
-                <p>Coat the nuggets lightly, spray with oil, and air fry at 200°C for 10–12 minutes, turning once.</p>
+                <p>Coat lightly, spray with oil, and air fry at 200°C for 10–12 minutes, turning once.</p>
               </div>
             </article>
 
@@ -89,7 +110,7 @@
               </ul>
               <div class="steps">
                 <strong>Method</strong>
-                <p>Soak the chips briefly, dry well, toss in oil, and cook at 200°C for 15–20 minutes, shaking halfway.</p>
+                <p>Soak briefly, dry well, toss in oil, and cook at 200°C for 15–20 minutes, shaking halfway.</p>
               </div>
             </article>
 
@@ -103,7 +124,7 @@
               </ul>
               <div class="steps">
                 <strong>Method</strong>
-                <p>Season well, air fry at 190°C for 18–22 minutes, then toss in sauce for extra flavour.</p>
+                <p>Season well, air fry at 190°C for 18–22 minutes, then finish with your sauce.</p>
               </div>
             </article>
 
@@ -131,7 +152,7 @@
               </ul>
               <div class="steps">
                 <strong>Method</strong>
-                <p>Build the sandwich, air fry at 180°C for 6–8 minutes until crisp and melty.</p>
+                <p>Build the sandwich and air fry at 180°C for 6–8 minutes until crisp and melty.</p>
               </div>
             </article>
 
@@ -145,7 +166,7 @@
               </ul>
               <div class="steps">
                 <strong>Method</strong>
-                <p>Mix pasta with sauce, place in a shallow dish, top with cheese, and air fry at 180°C until crisp at the edges and piping hot.</p>
+                <p>Mix pasta with sauce and cheese, place in a shallow tray, and air fry at 180°C until hot and crisp at the edges.</p>
               </div>
             </article>
           </div>
@@ -168,7 +189,7 @@
             </div>
             <div class="tip-box">
               <h3>3. Shake or turn</h3>
-              <p>Flip chips, nuggets, or wings halfway through for that perfect golden finish.</p>
+              <p>Flip chips, nuggets, and wings halfway through for a more even golden finish.</p>
             </div>
             <div class="tip-box">
               <h3>4. Preheat when needed</h3>
